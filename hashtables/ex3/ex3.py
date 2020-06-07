@@ -1,9 +1,18 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    count = {}
 
+    # nested loop to access inner arrays
+    for array in arrays:
+        for num in array:
+            # if it's there already increment
+            if num in count:
+                count[num] += 1
+            # if not there, add it
+            else:
+                count[num] = 1
+
+    # check each item's value. If it has a value equal to how many arrays there were, add it
+    result = [item[0] for item in count.items() if item[1] == len(arrays)]
     return result
 
 
